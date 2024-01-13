@@ -1,0 +1,66 @@
+{
+  "register": [
+    {
+      "username": "yasser",
+      "email": "yaso12@gmail.com",
+      "password": "Yasser1",
+      "role": "Viewer",
+      "createdAt": "Jan 13, 2024",
+      "id": 1
+    },
+    {
+      "username": "yasoooo",
+      "email": "yasser@gmail.com",
+      "password": "Yasser1",
+      "role": "",
+      "createdAt": "Jan 13, 2024",
+      "id": 2
+    },
+    {
+      "username": "meto",
+      "email": "meto@gmail.com",
+      "password": "Yasser1",
+      "role": "Viewer",
+      "createdAt": "Jan 13, 2024",
+      "id": 3
+    },
+    {
+      "username": "yasser",
+      "email": "yaso132@gmail.com",
+      "password": "Yasser1",
+      "role": "Viewer",
+      "createdAt": "Jan 13, 2024",
+      "id": 4
+    },
+    {
+      "username": "yasoooo",
+      "email": "yasse1r@gmail.com",
+      "password": "Yasser1",
+      "role": "",
+      "createdAt": "Jan 13, 2024",
+      "id": 5
+    },
+    {
+      "username": "meto",
+      "email": "meto1@gmail.com",
+      "password": "Yasser1",
+      "role": "Viewer",
+      "createdAt": "Jan 13, 2024",
+      "id": 6
+    },
+    {
+      "username": "metwaly",
+      "email": "met12@gmail.com",
+      "password": "Yasser1",
+      "role": "contributer",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 7
+    }
+  ],
+  "login": [
+    {
+      "id": 1
+    }
+  ]
+}

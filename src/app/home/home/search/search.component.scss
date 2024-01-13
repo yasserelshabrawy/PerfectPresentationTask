@@ -1,0 +1,22 @@
+
+
+#search {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  background: #494949;
+  color: white;
+}
+#search::placeholder {
+  color: white; /* Set placeholder text color to white */
+}
+
+/* Optional: Add styles for the label */
+label {
+  display: block; /* Ensures the label is on a new line */
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: white;
+}
