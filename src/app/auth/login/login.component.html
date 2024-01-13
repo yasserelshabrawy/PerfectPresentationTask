@@ -1,11 +1,9 @@
-<div class="login d-flex justify-content-center align-items-center m-auto bg-light my-5">
+<div class="bg-light min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="w-50">
 
-
-      <div class="h-100 d-flex align-items-center justify-content-center w-100">
-        <div class="box w-75">
           <h2>Login</h2>
 
-          <form [formGroup]="loginForm" >
+          <form [formGroup]="loginForm" (ngSubmit)="login()" >
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>Email</mat-label>
               <input matInput formControlName="email" placeholder="email" />
@@ -14,17 +12,21 @@
             <mat-form-field  appearance="outline" class="w-100">
               <mat-label>Password</mat-label>
               <input matInput formControlName="password" type="password" placeholder="password" />
-              <mat-error>required</mat-error>
+                       <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+            required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['pattern']">
+            Password must contain more than 4 characters, 1 upper case letter
+          </mat-error>
             </mat-form-field>
             <div class="d-flex justify-content-center">
-              <button mat-raised-button color="warn" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+              <button mat-raised-button color="warn" [disabled]="loginForm.invalid" >Login</button>
             </div>
           </form>
-          <div class="d-flex justify-content-center">
-            <a routerLink="/auth/register">Create Account </a>
-          </div>
-        </div>
-      </div>
+
+
+
     </div>
 
+</div>
 

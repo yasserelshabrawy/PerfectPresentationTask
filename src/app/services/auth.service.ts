@@ -11,8 +11,11 @@ export class AuthService {
   constructor(private http: HttpClient) {}
   user = new Subject();
 
-  register(model: User) {
-    return this.http.post(`${environment.baseApi}/register`, model);
+  userList(model:User){
+    return this.http.post(`${environment.baseApi}/user` , model)
+  }
+  getUserList(){
+    return this.http.get(`${environment.baseApi}/user` )
   }
   login(model: any) {
     return this.http.put(`${environment.baseApi}/login/1`, model);

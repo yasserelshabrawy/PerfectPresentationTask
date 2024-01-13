@@ -34,7 +34,13 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z 0-9])(?=.{4,})/),
+        ],
+      ],
     });
   }
 
@@ -50,6 +56,7 @@ export class LoginComponent implements OnInit {
       const model = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password,
+        username:'admin',
       };
       this.service.login(model).subscribe({
         next: (res: any) => {

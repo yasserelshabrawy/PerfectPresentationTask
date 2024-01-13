@@ -13,6 +13,6 @@ export class SearchComponent {
 
   emitSearch() {
     this.searchEventEmitter.emit(this.search);
-    // console.log(this.search)
+    console.log(this.search)
   }
 }

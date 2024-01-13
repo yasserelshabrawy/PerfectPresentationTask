@@ -1,7 +1,18 @@
-<div class="home p-2">
+<div class="home p-4">
   <div class="container">
 
-    <app-search (searchEventEmitter)="search($event)"></app-search>
+    <div class="title">
+      <h3>User Managment</h3>
+    </div>
+    <app-search
+    (searchEventEmitter)="search($event)"
+    ></app-search>
+    <app-filter
+    (permissionSelected)="filterViaPermission($event)"
+    ></app-filter>
+    <app-new-user
+    (userEventEmitter)="addUser($event)"
+    ></app-new-user>
     <br>
 
     <div class="mat-elevation-z8 ">
@@ -40,11 +51,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page of periodic users" class="home">
-      </mat-paginator>
     </div>
   </div>
 </div>

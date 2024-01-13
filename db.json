@@ -1,65 +1,211 @@
 {
   "register": [
     {
-      "username": "yasser",
-      "email": "yaso12@gmail.com",
-      "password": "Yasser1",
-      "role": "Viewer",
-      "createdAt": "Jan 13, 2024",
-      "id": 1
-    },
-    {
-      "username": "yasoooo",
-      "email": "yasser@gmail.com",
-      "password": "Yasser1",
-      "role": "",
-      "createdAt": "Jan 13, 2024",
-      "id": 2
-    },
-    {
-      "username": "meto",
-      "email": "meto@gmail.com",
-      "password": "Yasser1",
-      "role": "Viewer",
-      "createdAt": "Jan 13, 2024",
-      "id": 3
-    },
+      "username": "admin",
+      "email": "admin@admin.com",
+      "password": "Admin",
+      "role": "Admin"
+    }
+  ],
+  "user": [
     {
       "username": "yasser",
-      "email": "yaso132@gmail.com",
-      "password": "Yasser1",
+      "email": "yasser@1",
       "role": "Viewer",
       "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
       "id": 4
     },
     {
-      "username": "yasoooo",
-      "email": "yasse1r@gmail.com",
-      "password": "Yasser1",
+      "username": "",
+      "email": "",
       "role": "",
       "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
       "id": 5
     },
     {
-      "username": "meto",
-      "email": "meto1@gmail.com",
-      "password": "Yasser1",
-      "role": "Viewer",
+      "username": "",
+      "email": "",
+      "role": "",
       "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
       "id": 6
     },
     {
-      "username": "metwaly",
-      "email": "met12@gmail.com",
-      "password": "Yasser1",
-      "role": "contributer",
+      "username": "",
+      "email": "",
+      "role": "",
       "createdAt": "Jan 13, 2024",
       "location": "Egypt , Cairo",
       "id": 7
+    },
+    {
+      "username": "yasser",
+      "email": "a2@l",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 8
+    },
+    {
+      "username": "nader",
+      "email": "nader@email",
+      "role": "Viewer",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 9
+    },
+    {
+      "username": "a7a",
+      "email": "a7a@a7a",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 10
+    },
+    {
+      "username": "hhutg",
+      "email": "hh@h",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 11
+    },
+    {
+      "username": "ghg",
+      "email": "gyg@igi",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 12
+    },
+    {
+      "username": "test",
+      "email": "test@test",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 13
+    },
+    {
+      "username": "log",
+      "email": "log@log",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 14
+    },
+    {
+      "username": "uewfwef",
+      "email": "u@ewdghiwe",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 15
+    },
+    {
+      "username": "hateshta3'al",
+      "email": "isa@y",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 16
+    },
+    {
+      "username": "jefhfg",
+      "email": "wegfiu@rgbo",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 17
+    },
+    {
+      "username": "tttttttt",
+      "email": "tttttttttttt@ttttttt",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 18
+    },
+    {
+      "username": "new user",
+      "email": "user@user",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 19
+    },
+    {
+      "username": "ggggg",
+      "email": "gg@edf",
+      "role": "Viewer",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 20
+    },
+    {
+      "username": "addd",
+      "email": "a@1",
+      "role": "contributer",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 21
+    },
+    {
+      "username": "yasserrrr",
+      "email": "yasserrrr@yaserrrr",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 22
+    },
+    {
+      "username": "jgw",
+      "email": "gueg@oiug",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 23
+    },
+    {
+      "username": "efhl",
+      "email": "wieofh@wefou",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 24
+    },
+    {
+      "username": "uogouquf",
+      "email": "eriogh@weofu",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 25
+    },
+    {
+      "username": "test bgad ",
+      "email": "testAwyy@fhi",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 26
+    },
+    {
+      "username": "testyasser",
+      "email": "ggg2@KK",
+      "role": "Admin",
+      "createdAt": "Jan 13, 2024",
+      "location": "Egypt , Cairo",
+      "id": 27
     }
   ],
   "login": [
     {
+      "email": "admin@admin.com",
+      "password": "Admin",
+      "username": "admin",
       "id": 1
     }
   ]

@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  permission:string = 'all';
   user: User[] = [];
   searchText: string = '';
   constructor(private service: AuthService) {}
@@ -29,11 +30,15 @@ export class HomeComponent implements OnInit {
     this.getUser();
   }
 
+  addUser(user:User){
+    this.user.push(user);
+    this.dataSource = new MatTableDataSource<User>(this.user);
+  }
   getUser() {
-    this.service.getUsers().subscribe((res: any) => {
+    this.service.getUserList().subscribe((res: any) => {
       this.user = res;
-      this.dataSource = new MatTableDataSource<User>(this.user); // Update dataSource with the retrieved data
-      this.dataSource.paginator = this.paginator; // Set the paginator after updating the dataSource
+      this.dataSource = new MatTableDataSource<User>(this.user);
+      this.dataSource.paginator = this.paginator;
       console.log(this.user);
     });
   }
@@ -44,10 +49,10 @@ export class HomeComponent implements OnInit {
   }
 
   private filterUsers() {
-    const searchTerm = this.searchText.toLowerCase(); // Convert to lowercase for case-insensitive matching
+    const searchTerm = this.searchText.toLowerCase();
 
     if (searchTerm) {
-      // Filter users based on the search term
+
       this.dataSource.data = this.user.filter(
         (user) =>
           user.username.toLowerCase().includes(searchTerm)
@@ -55,8 +60,21 @@ export class HomeComponent implements OnInit {
           // user.email.toLowerCase().includes(searchTerm)
       );
     } else {
-      // If search term is empty, show all users
+
       this.dataSource.data = this.user;
+    }
+  }
+
+  filterViaPermission(permission:string){
+    this.permission = permission;
+  this.filterPermission(); // Apply permission filter when permission changes
+  }
+
+  private filterPermission() {
+    if (this.permission === 'all') {
+      this.dataSource.data = this.user;
+    } else {
+      this.dataSource.data = this.user.filter((user) => user.role.toLowerCase() === this.permission);
     }
   }
 }

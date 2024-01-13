@@ -14,6 +14,9 @@ export class NavbarComponent {
     this.service.user.subscribe((res: any) => {
       if (res.email) {
         this.user = res;
+        console.log(this.user.username);
+        console.log(this.user);
+
       }
     });
   }
