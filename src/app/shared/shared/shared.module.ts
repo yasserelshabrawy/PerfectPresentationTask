@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     ToastrModule.forRoot(),
     TranslateModule,
+    NgxPaginationModule,
   ],
   exports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     RouterModule,
     TranslateModule,
+    NgxPaginationModule,
   ],
 })
 export class SharedModule {}

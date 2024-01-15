@@ -9,7 +9,9 @@ import { MaterialModule } from './shared/material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './interceptor/loading.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -19,6 +21,8 @@ import { HttpClient } from '@angular/common/http';
     SharedModule,
     BrowserAnimationsModule,
     MaterialModule,
+    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-atom' }),
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -28,7 +32,13 @@ import { HttpClient } from '@angular/common/http';
       },
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

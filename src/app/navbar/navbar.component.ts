@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Login } from '../models/login';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +15,9 @@ export class NavbarComponent {
   lang: any;
   constructor(
     public service: AuthService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router:Router,
+    private toaster: ToastrService
   ) {
     this.lang = translate.currentLang;
   }
@@ -21,8 +26,6 @@ export class NavbarComponent {
     this.service.user.subscribe((res: any) => {
       if (res.email) {
         this.user = res;
-        console.log(this.user.username);
-        console.log(this.user);
       }
     });
   }
@@ -35,12 +38,8 @@ export class NavbarComponent {
     window.location.reload();
   }
   logOut() {
-    const model = {};
-    this.service.login(model).subscribe({
-      next: (res) => {
-        this.user = null;
-        this.service.user.next(res);
-      },
-    });
+    this.router.navigate(['login'])
+    this.toaster.success(this.translate.instant('toaster.logout'))
+    return localStorage.removeItem('token')
   }
 }

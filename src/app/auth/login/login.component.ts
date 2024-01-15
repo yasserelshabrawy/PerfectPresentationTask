@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private service: AuthService,
     private toaster: ToastrService,
-    private router: Router
+    private router: Router,
+    private translate:TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -51,19 +53,19 @@ export class LoginComponent implements OnInit {
         item.password == this.loginForm.value.password
     );
     if (index == -1) {
-      this.toaster.error('Email or Password is incorrect');
+      this.toaster.error(this.translate.instant('toaster.emailPassword'));
     } else {
       const model = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password,
-        username:'admin',
+        username:'Admin',
       };
       this.service.login(model).subscribe({
         next: (res: any) => {
           this.service.user.next(res);
-          console.log(res);
-          this.toaster.success('logged in successfully');
+          this.toaster.success(this.translate.instant('toaster.login'));
           this.router.navigate(['']);
+          localStorage.setItem('token', res?.username)
         },
       });
     }

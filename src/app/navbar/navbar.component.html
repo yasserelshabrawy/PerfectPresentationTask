@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="nav-link" class="text-white text-decoration-none" *ngIf="user !== null">{{
-      user?.username
-    }}</a>
+    <a
+      class="nav-link"
+      class="text-decoration-none text-info"
+      *ngIf="service.authLogin()"
+      >{{ user?.username }}</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -15,11 +18,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-white">
-        <li class="nav-item text-white">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
           <a
-            class="nav-link text-white"
-            *ngIf="user == null"
+            class="nav-link"
+            *ngIf="!service.authLogin()"
             routerLinkActive="active"
             routerLink="login"
             >{{ "navbar.login" | translate }}</a
@@ -28,10 +31,9 @@
         <li class="nav-item d-flex">
           <a
             class="nav-link"
-            *ngIf="user !== null"
+            *ngIf="service.authLogin()"
             routerLinkActive="active"
             (click)="logOut()"
-            routerLink="login"
             >{{ "navbar.logout" | translate }}</a
           >
           <a class="nav-link btn" (click)="changeLang()">{{

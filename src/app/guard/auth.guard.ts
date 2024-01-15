@@ -1,19 +1,15 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { map } from 'rxjs';
+import { inject } from '@angular/core';
 
-export class AuthGuard {
-  constructor(private authService: AuthService, private router: Router) {}
-
-  canActivate() {
-    return this.authService.user.pipe(
-      map((user: any) => {
-        if (user.email) {
-          return true;
-        } else {
-          return this.router.navigate(['auth/login']);
-        }
-      })
-    );
+export const AuthGuard: CanActivateFn = (route, state) => {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+  if (auth.authLogin()) {
+    return true;
+  } else {
+    router.navigate(['login']);
+    return false;
   }
-}
+};

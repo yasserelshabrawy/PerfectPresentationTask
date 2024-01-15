@@ -1,32 +1,83 @@
-<div class="container">
-  <div>
-    <form class="p-4 bg-light" [formGroup]="userList"  >
-      <div>
-        <mat-form-field>
-          <mat-label>{{"table.fullName"|translate}}</mat-label>
-          <input matInput formControlName="username" placeholder="username" />
+<div class="p-4 z-1 ">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">{{ "table.newUser" | translate }}</h1>
+    <button mat-flat-button class="text-danger" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <form class="" [formGroup]="userList">
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{ "table.fullName" | translate }}</mat-label>
+          <input
+            matInput
+            formControlName="username"
+            [placeholder]="'table.fullName' | translate"
+          />
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
-          <mat-label>{{"table.email"|translate}}</mat-label>
-          <input matInput formControlName="email" placeholder="email" />
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{ "table.email" | translate }}</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            [placeholder]="'table.email' | translate"
+          />
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
-          <mat-label></mat-label>
-                <mat-select class="form-control"formControlName="role" [(ngModel)]="selectedRole" (change)="updateSelectedRole()" placeholder="Role">
-          <mat-option *ngFor="let role of roles"  [value]="role?.name">
-            {{ role?.name }}
-          </mat-option>
-        </mat-select>
-        </mat-form-field>
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{ "table.joined" | translate }}</mat-label>
 
-        <div>
-          <button  class="btn btn-secondary" (click)="userform()" [disabled]="userList.invalid">Submit</button>
-        </div>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="joined"
+            [placeholder]="'table.joined' | translate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
-    </form>
-  </div>
+      <div>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>{{ "table.permissions" | translate }}</mat-label>
+          <mat-select
+            class="form-control"
+            formControlName="role"
+            [(ngModel)]="selectedRole"
+            (change)="updateSelectedRole()"
+            [placeholder]="'table.permissions' | translate"
+          >
+            <mat-option *ngFor="let role of roles" [value]="role?.name">
+              {{ role?.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <button
+          class="btn btn-secondary"
+          (click)="userform()"
+          *ngIf="!data"
+          [disabled]="userList.invalid"
+        >
+          {{'table.newUser'|translate}}
+        </button>
+        <button
+          class="btn btn-primary"
+          *ngIf="data"
+          (click)="update()"
+          [disabled]="userList.invalid"
+        >
+          {{'table.update'|translate}}
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

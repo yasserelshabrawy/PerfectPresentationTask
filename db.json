@@ -9,27 +9,11 @@
   ],
   "user": [
     {
-      "username": "yasser",
-      "email": "yasser@1",
-      "role": "Viewer",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 4
-    },
-    {
-      "username": "hhutg",
-      "email": "hh@h",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 11
-    },
-    {
       "username": "ghg",
-      "email": "gyg@igi",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
+      "email": "gyg@igiggkkk",
+      "role": "مساهم",
+      "createdAt": "Jan 20, 2024",
+      "location": "Egypt , Damietta",
       "id": 12
     },
     {
@@ -113,30 +97,6 @@
       "id": 22
     },
     {
-      "username": "jgw",
-      "email": "gueg@oiug",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 23
-    },
-    {
-      "username": "efhl",
-      "email": "wieofh@wefou",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 24
-    },
-    {
-      "username": "uogouquf",
-      "email": "eriogh@weofu",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 25
-    },
-    {
       "username": "test bgad ",
       "email": "testAwyy@fhi",
       "role": "Admin",
@@ -151,10 +111,117 @@
       "createdAt": "Jan 13, 2024",
       "location": "Egypt , Cairo",
       "id": 27
+    },
+    {
+      "username": "yass",
+      "email": "email@dd",
+      "role": "الجميع",
+      "createdAt": "1-31-2024",
+      "location": "Egypt , Giza",
+      "id": 30
+    },
+    {
+      "username": "yessss",
+      "email": "accepter@gmail.com",
+      "role": "Contributer",
+      "createdAt": "Jan 20, 2024",
+      "location": "Egypt , Damietta",
+      "id": 34
+    },
+    {
+      "username": "ياسرر",
+      "email": "aa@gmm",
+      "role": "مساهم",
+      "createdAt": "Jan 31, 2024",
+      "location": "Egypt , Damietta",
+      "id": 37
+    },
+    {
+      "username": "yasora",
+      "email": "final@gmail",
+      "role": "مساهم",
+      "createdAt": "Jan 22, 2024",
+      "location": "Egypt , Damietta",
+      "id": 38
+    },
+    {
+      "username": "yaooo",
+      "email": "Ah@a",
+      "role": "مساهم",
+      "createdAt": "Jan 27, 2024",
+      "location": "Egypt , Damietta",
+      "id": 39
+    },
+    {
+      "username": "done",
+      "email": "done@12",
+      "role": "مساهم",
+      "createdAt": "Jan 19, 2024",
+      "location": "Egypt , Damietta",
+      "id": 40
+    },
+    {
+      "username": "yasora",
+      "email": "Ass2g@f",
+      "role": "مشاهد",
+      "createdAt": "Jan 12, 2024",
+      "location": "Egypt , Damietta",
+      "id": 41
+    },
+    {
+      "username": "yasso",
+      "email": "uaso@ff",
+      "role": "مشاهد",
+      "createdAt": "Jan 31, 2024",
+      "location": "Egypt , Damietta",
+      "id": 42
+    },
+    {
+      "username": "date",
+      "email": "date@gmail.com",
+      "role": "مشاهد",
+      "createdAt": "Jan 20, 2024",
+      "location": "Egypt , Damietta",
+      "id": 43
+    },
+    {
+      "username": "yassjj",
+      "email": "llll@d",
+      "role": "مشاهد",
+      "createdAt": "Jan 23, 2024",
+      "location": "Egypt , Damietta",
+      "id": 44
+    },
+    {
+      "username": "hiii",
+      "email": "zh2t@nn",
+      "role": "مساهم",
+      "createdAt": "Jan 19, 2024",
+      "location": "Egypt , Damietta",
+      "id": 45
+    },
+    {
+      "username": "yasoo",
+      "email": "aaa@u",
+      "role": "مساهم",
+      "createdAt": "Jan 17, 2024",
+      "location": "Egypt , Damietta",
+      "id": 46
+    },
+    {
+      "username": "hjhjhj",
+      "email": "ya@bb.c",
+      "role": "مساهم",
+      "createdAt": "Jan 26, 2024",
+      "location": "Egypt , Damietta",
+      "id": 47
     }
   ],
   "login": [
     {
+      "email": "admin@admin.com",
+      "password": "Admin",
+      "username": "Admin",
       "id": 1
     }
   ]

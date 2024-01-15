@@ -71,3 +71,9 @@ svg{
   background: #494949;
   display: flex;
 }
+::ng-deep .mat-mdc-paginator-container{
+  background-color: #494949;
+  justify-content: flex-start !important;
+  color: white !important;
+}
+

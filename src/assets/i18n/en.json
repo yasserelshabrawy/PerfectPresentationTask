@@ -34,5 +34,18 @@
     "viewer": "Viewer",
     "contributer": "Contributer",
     "date": "Date"
+  },
+  "loading": {
+    "loading": "loading"
+  },
+  "toaster": {
+    "emailPassword": "Email or Password is incorrect",
+    "login": "logged in successfully",
+    "logout": "You have successfully logged out",
+    "newUser":"add user successfully"
+  },
+  "title": {
+    "login": "Login ",
+    "home": "home "
   }
 }

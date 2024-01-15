@@ -8,11 +8,13 @@ import { SearchComponent } from './home/top-bar/search/search.component';
 import { NewUserComponent } from './home/top-bar/new-user/new-user.component';
 import { NewUserDialogComponent } from './home/top-bar/new-user/new-user-dialog/new-user-dialog.component';
 import { FilterComponent } from './home/top-bar/filter/filter.component';
+import { AuthGuard } from '../guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    // canActivate: [AuthGuard],
+    title:'home',
+    canActivate: [AuthGuard],
   },
 ];
 

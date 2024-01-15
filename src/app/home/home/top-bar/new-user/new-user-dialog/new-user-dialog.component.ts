@@ -6,6 +6,9 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import * as moment from 'moment';
+import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from '../../../../../services/user.service';
 
 @Component({
   selector: 'app-new-user-dialog',
@@ -13,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./new-user-dialog.component.scss'],
 })
 export class NewUserDialogComponent {
-  users: any[] = [];
+  user: any[] = [];
   selectedRole: string = '';
   date: Date = new Date();
   country: string = '';
@@ -21,19 +24,21 @@ export class NewUserDialogComponent {
   userList!: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private service: AuthService,
+    private service: UserService,
     private router: Router,
     private toaster: ToastrService,
     private translate: TranslateService,
     public dialogRef: MatDialogRef<NewUserDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { user: User }
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data:any
+    ) {}
+  dataSource = new MatTableDataSource<User>(this.user);
 
-  onNoClick(user: any): void {
-    this.dialogRef.close(user);
+
+  close() {
+    this.dialogRef.close();
   }
   roles: any = [
-    { name: this.translate.instant('option.all') },
+    { name: this.translate.instant('option.all')  },
     { name: this.translate.instant('option.viewer') },
     { name: this.translate.instant('option.contributer') },
   ];
@@ -43,38 +48,64 @@ export class NewUserDialogComponent {
       this.country = res.country_name;
       this.city = res.city;
     });
+    console.log(this.data?.role);
+
+
   }
   updateSelectedRole() {
     this.selectedRole = this.userList.get('role')?.value;
   }
   createForm() {
     this.userList = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      role: [''],
+      username: [
+        this.data?.username || '',
+        [Validators.required, Validators.minLength(3)],
+      ],
+      email: [this.data?.email || '', [Validators.required, Validators.email]],
+      role: [this.data?.role || '', Validators.required],
+      joined: [
+        this.data && this.data.createdAt
+          ? new Date(this.data.createdAt).toISOString()
+          : '',
+        [Validators.required],
+      ],
     });
+
+
   }
-  formatMediumDate(date: Date): string {
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    };
-    return date.toLocaleDateString('en-US', options);
-  }
+
   userform() {
     const model = {
       username: this.userList.value.username,
       email: this.userList.value.email,
       role: this.selectedRole,
-      createdAt: this.formatMediumDate(this.date),
+      createdAt: moment(this.userList.value['joined']).format('MMM DD, YYYY'),
       location: `${this.country} , ${this.city}`,
     };
     this.service.userList(model).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         console.log(res);
-        this.onNoClick(res);
+        this.user = res;
+        this.toaster.success(this.translate.instant('toaster.newUser'))
+        // this.dataSource = new MatTableDataSource<User>(this.user);
+        // console.log(this.dataSource);
+
+        this.close();
       },
     });
+  }
+  update(){
+    const model = {
+      username: this.userList.value.username,
+      email: this.userList.value.email,
+      role: this.selectedRole,
+      createdAt: moment(this.userList.value['joined']).format('MMM DD, YYYY'),
+      location: `${this.country} , ${this.city}`,
+    };
+    this.service.updateUser(model , this.data?.id).subscribe({
+      next:(res:any)=>{
+        this.close()
+      }
+    })
   }
 }
