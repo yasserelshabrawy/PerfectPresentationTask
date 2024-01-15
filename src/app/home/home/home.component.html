@@ -1,55 +1,126 @@
 <div class="home p-4">
   <div class="container">
-
     <div class="title">
-      <h3>User Managment</h3>
+      <h3>{{"user.managment"|translate}}</h3>
     </div>
-    <app-search
-    (searchEventEmitter)="search($event)"
-    ></app-search>
-    <app-filter
-    (permissionSelected)="filterViaPermission($event)"
-    ></app-filter>
-    <app-new-user
-    (userEventEmitter)="addUser($event)"
-    ></app-new-user>
-    <br>
+    <div class="d-flex gap-2 align-items-center">
+      <app-search (searchEventEmitter)="search($event)"></app-search>
+      <app-filter
+        (permissionSelected)="filterViaPermission($event)"
+      ></app-filter>
+      <div class="svg">
 
-    <div class="mat-elevation-z8 ">
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="45"
+            height="45"
+            viewBox="0 0 47 46"
+            fill="none"
+            class=""
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M15.7897 1.28627H19.0563C20.4079 1.28627 21.5042 2.39216 21.5042 3.75645V7.05037C21.5042 8.41362 20.4079 9.52055 19.0563 9.52055H15.7897C14.4372 9.52055 13.3408 8.41362 13.3408 7.05037V3.75645C13.3408 2.39216 14.4372 1.28627 15.7897 1.28627Z"
+              stroke="#F5F5F5"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.95307 1.28627H7.21864C8.57118 1.28627 9.66756 2.39216 9.66756 3.75645V7.05037C9.66756 8.41362 8.57118 9.52055 7.21864 9.52055H3.95307C2.60053 9.52055 1.50415 8.41362 1.50415 7.05037V3.75645C1.50415 2.39216 2.60053 1.28627 3.95307 1.28627Z"
+              stroke="#F5F5F5"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.95307 13.052H7.21864C8.57118 13.052 9.66756 14.1579 9.66756 15.5232V18.8161C9.66756 20.1804 8.57118 21.2863 7.21864 21.2863H3.95307C2.60053 21.2863 1.50415 20.1804 1.50415 18.8161V15.5232C1.50415 14.1579 2.60053 13.052 3.95307 13.052Z"
+              stroke="#F5F5F5"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M15.7897 13.052H19.0563C20.4079 13.052 21.5042 14.1579 21.5042 15.5232V18.8161C21.5042 20.1804 20.4079 21.2863 19.0563 21.2863H15.7897C14.4372 21.2863 13.3408 20.1804 13.3408 18.8161V15.5232C13.3408 14.1579 14.4372 13.052 15.7897 13.052Z"
+              stroke="#F5F5F5"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+      </div>
+
+      <div class="ms-auto d-flex gap-2 align-items-center">
+        <div class="list">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div>
+          <button class="export">{{"table.export"|translate}}</button>
+        </div>
+        <app-new-user (userEventEmitter)="addUser($event)"></app-new-user>
+      </div>
+    </div>
+    <br />
+
+    <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" class="">
-
         <!-- Position Column -->
         <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let user ; let i =index " > {{i+1}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="no"></div>
+          </th>
+          <td mat-cell *matCellDef="let user; let i = index">
+            <div class="no"></div>
+          </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="Full Name">
-          <th mat-header-cell *matHeaderCellDef> Full Name </th>
-          <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+          <th mat-header-cell *matHeaderCellDef>{{"table.fullName"|translate}}</th>
+          <td mat-cell *matCellDef="let user">{{ user.username }}</td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="Email Address">
-          <th mat-header-cell *matHeaderCellDef> Email Address </th>
-          <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+          <th mat-header-cell *matHeaderCellDef>{{"table.email"|translate}}</th>
+          <td mat-cell *matCellDef="let user">{{ user.email }}</td>
         </ng-container>
 
         <!-- Symbol Column -->
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>{{"table.location"|translate}}</th>
+          <td mat-cell *matCellDef="let user">{{ user.location }}</td>
+        </ng-container>
         <ng-container matColumnDef="Joined">
-          <th mat-header-cell *matHeaderCellDef> Joined </th>
-          <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>
+          <th mat-header-cell *matHeaderCellDef>{{"table.joined"|translate}}</th>
+          <td mat-cell *matCellDef="let user">{{ user.createdAt }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Permissions">
-          <th mat-header-cell *matHeaderCellDef> Permissions </th>
-          <td mat-cell *matCellDef="let user"> {{user.role}} </td>
+          <th mat-header-cell *matHeaderCellDef>{{"table.permissions"|translate}}</th>
+          <td mat-cell *matCellDef="let user">{{ user.role }}</td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>{{"table.edit"|translate}}</th>
+          <td mat-cell *matCellDef="let user">
+            <div class="d-flex gap-1">
+              <button class="btn btn-primary">{{"table.update"|translate}}</button>
+              <button class="btn btn-danger">{{"table.delete"|translate}}</button>
+            </div>
+          </td>
         </ng-container>
 
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
   </div>

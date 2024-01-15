@@ -20,8 +20,11 @@ export class HomeComponent implements OnInit {
     'position',
     'Full Name',
     'Email Address',
+    'location',
     'Joined',
     'Permissions',
+    'edit'
+
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

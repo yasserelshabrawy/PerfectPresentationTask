@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     FormsModule,
     ToastrModule.forRoot(),
+    TranslateModule,
   ],
   exports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    TranslateModule,
   ],
 })
 export class SharedModule {}

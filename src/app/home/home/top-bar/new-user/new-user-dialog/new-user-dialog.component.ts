@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-user-dialog',
@@ -23,6 +24,7 @@ export class NewUserDialogComponent {
     private service: AuthService,
     private router: Router,
     private toaster: ToastrService,
+    private translate: TranslateService,
     public dialogRef: MatDialogRef<NewUserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { user: User }
   ) {}
@@ -30,7 +32,11 @@ export class NewUserDialogComponent {
   onNoClick(user: any): void {
     this.dialogRef.close(user);
   }
-  roles: any = [{ name: 'Admin' }, { name: 'Viewer' }, { name: 'contributer' }];
+  roles: any = [
+    { name: this.translate.instant('option.all') },
+    { name: this.translate.instant('option.viewer') },
+    { name: this.translate.instant('option.contributer') },
+  ];
   ngOnInit(): void {
     this.createForm();
     this.service.getLocation().subscribe((res: any) => {

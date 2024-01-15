@@ -1,18 +1,30 @@
-<div>
+ <div class="d-flex gap-2">
+<div class="permission">
+  <!-- <mat-label>permission</mat-label> -->
 <select class="search" title="permission" [(ngModel)]="selectedPermission" (change)="onPermissionChange()">
-  <option value="all">All</option>
-  <option value="admin">admin</option>
-  <option value="viewer">viewer</option>
-  <option value="contributor">Contributor</option>
+  <option value="all">{{"option.all"|translate}}</option>
+  <option value="admin">{{"option.admin"|translate}}</option>
+  <option value="viewer">{{"option.viewer"|translate}}</option>
+  <option value="contributor">{{"option.contributer"|translate}}</option>
 </select>
 
 </div>
-  <div>
- <select class="search" title="permission" >
-  <option selected>Joined anytime</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+
+
+<div>
+
+
+ <select class="search" title="permission" [(ngModel)]="selectedOption">
+  <option value="all">{{"option.all"|translate}}</option>
+  <option value="date">{{"option.date"|translate}}</option>
 </select>
 
+<!-- Date input is outside the select element -->
+<input *ngIf="selectedOption === 'date'" type="date" placeholder="Choose a date" [(ngModel)]="date">
+
+
+</div>
+
+
   </div>
+

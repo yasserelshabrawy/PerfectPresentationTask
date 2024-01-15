@@ -1,0 +1,40 @@
+{
+  "login":{
+    "login" : "تسجيل الدخول",
+    "email" : "الايميل",
+    "password": "كلمة المرور",
+    "error":"يجب إدخال 4 حروف على الأقل ، وحرف كبير",
+    "requiredEmail": "يجب إدخال الايميل",
+    "requiredPassword": "يجب إدخال كلمة المرور"
+  },
+  "navbar":{
+    "login" : "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "admin" : "مسؤول"
+  },
+  "table":{
+    "fullName":"الاسم كامل",
+    "email":"الايميل",
+    "location":"العنوان",
+    "joined":"الانضمام",
+    "permissions":"الاذن",
+    "edit":"التعديل",
+    "update":"تحديث",
+    "delete":"حذف",
+    "search":"بحث",
+    "export":"تصدير",
+    "newUser":"إضافة مستخدم"
+  },
+  "user":{
+    "managment":"إدارة المستخدم"
+  },
+  "option":{
+    "all":"الجميع",
+    "admin":"مسؤول",
+    "viewer":"مشاهد",
+    "contributer":"مساهم",
+    "date":"التاريخ"
+  }
+
+
+}

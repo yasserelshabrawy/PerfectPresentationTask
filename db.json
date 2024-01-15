@@ -17,54 +17,6 @@
       "id": 4
     },
     {
-      "username": "",
-      "email": "",
-      "role": "",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 5
-    },
-    {
-      "username": "",
-      "email": "",
-      "role": "",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 6
-    },
-    {
-      "username": "",
-      "email": "",
-      "role": "",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 7
-    },
-    {
-      "username": "yasser",
-      "email": "a2@l",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 8
-    },
-    {
-      "username": "nader",
-      "email": "nader@email",
-      "role": "Viewer",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 9
-    },
-    {
-      "username": "a7a",
-      "email": "a7a@a7a",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 10
-    },
-    {
       "username": "hhutg",
       "email": "hh@h",
       "role": "Admin",
@@ -203,9 +155,6 @@
   ],
   "login": [
     {
-      "email": "admin@admin.com",
-      "password": "Admin",
-      "username": "admin",
       "id": 1
     }
   ]

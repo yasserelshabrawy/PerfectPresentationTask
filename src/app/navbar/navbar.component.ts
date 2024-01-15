@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent {
   user: any = null;
-  constructor(public service: AuthService) {}
+  lang: any;
+  constructor(
+    public service: AuthService,
+    private translate: TranslateService
+  ) {
+    this.lang = translate.currentLang;
+  }
 
   ngOnInit(): void {
     this.service.user.subscribe((res: any) => {
@@ -16,9 +23,16 @@ export class NavbarComponent {
         this.user = res;
         console.log(this.user.username);
         console.log(this.user);
-
       }
     });
+  }
+  changeLang() {
+    if (this.lang == 'en') {
+      localStorage.setItem('language', 'ar');
+    } else {
+      localStorage.setItem('language', 'en');
+    }
+    window.location.reload();
   }
   logOut() {
     const model = {};

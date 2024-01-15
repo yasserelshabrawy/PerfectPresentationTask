@@ -1,29 +1,16 @@
-
-
 .search {
-  padding: 8px;
-  border: 1px solid #ccc;
-  // border:none;
-  // outline:none;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  background: #494949;
+  font-family: HelveticaNeue;
+  font-size: 24px;
+  padding: 5px;
+  border: 2px solid rgba(112, 112, 112, 0.53);
+  background: #545454;
   color: white;
-  padding: 10px 5px;
 }
 #search::placeholder {
-  color: white;
+  color: #fff;
+  font-family: HelveticaNeue;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 36px */
 }
-.export{
-  background: #494949;
-  color: white;
-  padding: 10px 35px 10px 30px;
-  border-radius: 5px;
-  border: 1px white solid
-
-}
-
-
-
-

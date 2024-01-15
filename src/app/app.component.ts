@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,18 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private service: AuthService) {}
+  lang: any;
+  constructor(
+    private service: AuthService,
+    private translate: TranslateService
+  ) {
+ if ('language' in localStorage) {
+      this.lang = localStorage.getItem('language');
+      translate.use(this.lang);
+    } else {
+      translate.use(translate.defaultLang);
+  }
+}
   ngOnInit(): void {
     this.getUserData();
   }
@@ -17,4 +30,8 @@ export class AppComponent {
       this.service.user.next(res);
     });
   }
+
+
+
+
 }

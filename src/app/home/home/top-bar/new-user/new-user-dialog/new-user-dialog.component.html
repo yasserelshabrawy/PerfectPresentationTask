@@ -1,21 +1,21 @@
 <div class="container">
   <div>
-    <form class="p-2" [formGroup]="userList"  >
+    <form class="p-4 bg-light" [formGroup]="userList"  >
       <div>
         <mat-form-field>
-          <mat-label>username</mat-label>
+          <mat-label>{{"table.fullName"|translate}}</mat-label>
           <input matInput formControlName="username" placeholder="username" />
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
-          <mat-label>email</mat-label>
+          <mat-label>{{"table.email"|translate}}</mat-label>
           <input matInput formControlName="email" placeholder="email" />
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
-          <mat-label>Select</mat-label>
+          <mat-label></mat-label>
                 <mat-select class="form-control"formControlName="role" [(ngModel)]="selectedRole" (change)="updateSelectedRole()" placeholder="Role">
           <mat-option *ngFor="let role of roles"  [value]="role?.name">
             {{ role?.name }}
