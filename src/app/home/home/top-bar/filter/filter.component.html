@@ -1,30 +1,34 @@
- <div class="d-flex gap-2">
-<div class="permission">
-  <!-- <mat-label>permission</mat-label> -->
-<select class="search" title="permission" [(ngModel)]="selectedPermission" (change)="onPermissionChange()">
-  <option value="all">{{"option.all"|translate}}</option>
-  <option value="admin">{{"option.admin"|translate}}</option>
-  <option value="viewer">{{"option.viewer"|translate}}</option>
-  <option value="contributor">{{"option.contributer"|translate}}</option>
-</select>
-
-</div>
-
-
-<div>
-
-
- <select class="search" title="permission" [(ngModel)]="selectedOption">
-  <option value="all">{{"option.all"|translate}}</option>
-  <option value="date">{{"option.date"|translate}}</option>
-</select>
-
-<!-- Date input is outside the select element -->
-<input *ngIf="selectedOption === 'date'" type="date" placeholder="Choose a date" [(ngModel)]="date">
-
-
-</div>
-
-
+<div class="d-flex gap-2">
+  <div class="permission">
+    <!-- <mat-label>permission</mat-label> -->
+    <label for="permission">permissions</label>
+    <select
+      class="search"
+      title="permission"
+      [(ngModel)]="selectedPermission"
+      (change)="onPermissionChange()"
+    >
+      <option value="all">{{ "option.all" | translate }}</option>
+      <option value="admin">{{ "option.admin" | translate }}</option>
+      <option value="viewer">{{ "option.viewer" | translate }}</option>
+      <option value="contributor">
+        {{ "option.contributer" | translate }}
+      </option>
+    </select>
   </div>
 
+  <div>
+    <select class="search" title="permission" [(ngModel)]="selectedOption">
+      <option value="all">{{ "option.all" | translate }}</option>
+      <option value="date">{{ "option.date" | translate }}</option>
+    </select>
+
+    <!-- Date input is outside the select element -->
+    <input
+      *ngIf="selectedOption === 'date'"
+      type="date"
+      placeholder="Choose a date"
+      [(ngModel)]="date"
+    />
+  </div>
+</div>

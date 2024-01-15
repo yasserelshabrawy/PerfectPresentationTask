@@ -9,14 +9,6 @@
   ],
   "user": [
     {
-      "username": "ghg",
-      "email": "gyg@igiggkkk",
-      "role": "مساهم",
-      "createdAt": "Jan 20, 2024",
-      "location": "Egypt , Damietta",
-      "id": 12
-    },
-    {
       "username": "test",
       "email": "test@test",
       "role": "Admin",
@@ -111,14 +103,6 @@
       "createdAt": "Jan 13, 2024",
       "location": "Egypt , Cairo",
       "id": 27
-    },
-    {
-      "username": "yass",
-      "email": "email@dd",
-      "role": "الجميع",
-      "createdAt": "1-31-2024",
-      "location": "Egypt , Giza",
-      "id": 30
     },
     {
       "username": "yessss",

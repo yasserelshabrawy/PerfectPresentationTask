@@ -1,11 +1,18 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { NewUserDialogComponent } from './top-bar/new-user/new-user-dialog/new-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +37,7 @@ export class HomeComponent implements OnInit {
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('content') content!: ElementRef;
 
   ngOnInit() {
     this.getUser();
@@ -88,7 +96,20 @@ export class HomeComponent implements OnInit {
       data: element,
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.getUser()
+      this.getUser();
+    });
+  }
+
+  public openPDF(): void {
+    let DATA: any = document.getElementById('content');
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      PDF.save('angular-demo.pdf');
     });
   }
 }

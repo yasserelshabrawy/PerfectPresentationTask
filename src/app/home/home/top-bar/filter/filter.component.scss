@@ -1,8 +1,15 @@
-.search {
+
+.permission{
   font-family: HelveticaNeue;
   font-size: 24px;
   padding: 5px;
   border: 2px solid rgba(112, 112, 112, 0.53);
   background: #545454;
   color: white;
+  .search {
+  border: none;
+  outline: none;
+  background: #545454;
+  color: #FF8B37;
+}
 }
