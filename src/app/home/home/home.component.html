@@ -1,21 +1,21 @@
-<div class="home p-4">
+<div class="home p-4 min-vh-100">
   <div class="container">
     <div class="title">
       <h3>{{ "user.managment" | translate }}</h3>
     </div>
-    <div class="d-flex gap-2 align-items-center">
-      <div>
-        <app-search (searchEventEmitter)="search($event)"></app-search>
-      </div>
-      <div>
+    <div class="row align-items-center gap-3 column-gap-0">
+
+        <app-search class="col-md-2 d-flex col-sm-12" (searchEventEmitter)="search($event)"></app-search>
+
+        <div class="col-md-5 d-flex ">
         <app-filter
           (permissionSelected)="filterViaPermission($event)"
           (dateSelecter)="filterDate($event)"
           (dateChange)="onFilterOptionChange($event)"
         ></app-filter>
-      </div>
-      <div>
-        <div class="svg">
+
+      <div class="my-auto px-2 d-none d-sm-block">
+        <div class="svg ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="45"
@@ -63,8 +63,9 @@
           </svg>
         </div>
       </div>
+      </div>
 
-      <div class="ms-auto d-flex gap-2 align-items-center">
+      <div class="ms-auto d-flex justify-content-lg-end gap-2 col-md-4 align-items-center ">
         <div class="list">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
@@ -78,7 +79,7 @@
     </div>
     <br />
 
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8 table-container">
       <table mat-table [dataSource]="dataSource" id="content" #content>
         <!-- Position Column -->
         <ng-container matColumnDef="position">

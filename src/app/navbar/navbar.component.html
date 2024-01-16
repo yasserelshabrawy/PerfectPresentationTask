@@ -28,7 +28,7 @@
             >{{ "navbar.login" | translate }}</a
           >
         </li>
-        <li class="nav-item d-flex">
+        <li class="nav-item d-lg-flex">
           <a
             class="nav-link"
             *ngIf="service.authLogin()"
@@ -36,7 +36,7 @@
             (click)="logOut()"
             >{{ "navbar.logout" | translate }}</a
           >
-          <a class="nav-link btn" (click)="changeLang()">{{
+          <a class="nav-link" (click)="changeLang()">{{
             lang == "en" ? "عربي" : "en"
           }}</a>
         </li>

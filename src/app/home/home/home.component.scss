@@ -1,12 +1,21 @@
+$main-color: #494949;
+
 .home {
   color: white;
-  background: #494949;
+  background: $main-color;
+}
+.table-container {
+  overflow-x: auto;
+}
+
+.mat-table {
+  width: 100%;
+  overflow-x: auto;
 }
 
 table {
-
   border-radius: 4px;
-  background: #494949;
+  background: $main-color;
   font-family: HelveticaNeue;
   th {
     background: #3d3d3d;
@@ -30,7 +39,7 @@ table {
   font-size: 26px;
   font-style: normal;
   font-weight: 400;
-  line-height:39px
+  line-height: 39px;
 }
 .export {
   color: white;
@@ -58,9 +67,9 @@ table {
   height: 34.208px;
   display: flex;
 }
-svg{
+svg {
   position: relative;
-    left: 7px;
+  left: 7px;
 }
 
 .no {
@@ -69,13 +78,11 @@ svg{
   height: 29px;
   flex-shrink: 0;
   border: 2px solid #7d7d7d;
-  background: #494949;
+  background: $main-color;
   display: flex;
 }
-::ng-deep .mat-mdc-paginator-container{
-  background-color: #494949;
+::ng-deep .mat-mdc-paginator-container {
+  background-color: $main-color;
   justify-content: flex-start !important;
   color: white !important;
 }
-
-

@@ -1,8 +1,10 @@
-<div class="d-flex gap-2">
-  <div class="permission">
-    <label for="permission">{{ "table.permissions" | translate }}</label>
+<div class="d-flex gap-2 w-100">
+  <div class="option d-flex">
+    <label class="my-auto pe-1" for="permission">{{
+      "table.permissions" | translate
+    }}</label>
     <select
-      class="search"
+      class="select"
       title="permission"
       [(ngModel)]="selectedPermission"
       (change)="onPermissionChange()"
@@ -16,11 +18,13 @@
     </select>
   </div>
 
-  <div class="permission">
-    <label for="permission">{{ "table.joined" | translate }}</label>
+  <div class="option d-flex">
+    <label class="my-auto pe-1" for="joined">{{
+      "table.joined" | translate
+    }}</label>
     <select
-      class="search"
-      title="permission"
+      class="select"
+      title="joined"
       [(ngModel)]="selectedOption"
       (change)="onFilterOptionChange()"
     >
