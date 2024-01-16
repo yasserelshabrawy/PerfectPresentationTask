@@ -1,9 +1,16 @@
-# PerfectPresentationTask
- User Managment 
- A web-based application for managing users with search, date filtering, edit, delete, and add functionalities. 
- and use Angular Material
+# User Managment CRUD with json-server
 
- Features
+ ## Description
+ 1.	design with Angular SPA with lazy loading.
+ 2. use Json server to handle Json data for App.
+3.	styling with Bootstrap. 
+4.	Apply Authentication and using auth guards. 
+5.	reusable components and divide page to multiple components 
+6.	Use Angular Material.
+7.	Add translation for Ar and En languages is A plus. 
+
+
+ ## Features
 User Search: Easily find users by searching for their names or specific criteria.
 
 Date Filtering: Filter users based on registration or modification dates, making it convenient to find recently added or updated users.
@@ -15,7 +22,7 @@ User Deletion: Remove users from the system when necessary. Include a confirmati
 User Addition: Add new users to the system, providing necessary information and attributes.
 
 
-Installation 
+## Installation 
 1-Clone the repository to your local machine.
 git clone https://github.com/your-username/user-management.git
 
@@ -33,5 +40,5 @@ ng-serve
 
 
 Contact
-For support or feedback, contact us at yasser.elshabrawy98@gmail.com.
+For support or feedback, contact me at yasser.elshabrawy98@gmail.com.
 
