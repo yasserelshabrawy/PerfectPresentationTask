@@ -30,6 +30,7 @@
   },
   "option":{
     "all":"الجميع",
+    "anytime":"أي وفت",
     "admin":"مسؤول",
     "viewer":"مشاهد",
     "contributer":"مساهم",

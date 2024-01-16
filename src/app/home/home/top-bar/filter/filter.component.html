@@ -1,7 +1,6 @@
 <div class="d-flex gap-2">
   <div class="permission">
-    <!-- <mat-label>permission</mat-label> -->
-    <label for="permission">permissions</label>
+    <label for="permission">{{ "table.permissions" | translate }}</label>
     <select
       class="search"
       title="permission"
@@ -17,18 +16,20 @@
     </select>
   </div>
 
-  <div>
-    <select class="search" title="permission" [(ngModel)]="selectedOption">
-      <option value="all">{{ "option.all" | translate }}</option>
-      <option value="date">{{ "option.date" | translate }}</option>
-    </select>
+  <div class="permission">
+    <label for="permission">{{ "table.joined" | translate }}</label>
+    <select class="search" title="permission" [(ngModel)]="selectedOption"  >
+      <option selected value="anytime">{{ "option.anytime" | translate }} </option>
+      <option value="date">{{ "option.date" | translate }}
 
-    <!-- Date input is outside the select element -->
+      </option>
+    </select>
     <input
+      matInput
       *ngIf="selectedOption === 'date'"
       type="date"
-      placeholder="Choose a date"
       [(ngModel)]="date"
+      (change)="onDateChange()"
     />
   </div>
 </div>

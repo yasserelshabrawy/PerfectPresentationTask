@@ -21,10 +21,11 @@ import html2canvas from 'html2canvas';
 })
 export class HomeComponent implements OnInit {
   permission: string = 'all';
+  date: string = 'all';
   user: User[] = [];
   searchText: string = '';
   constructor(private service: UserService, public dialog: MatDialog) {}
-  dataSource = new MatTableDataSource<User>(this.user); // Initialize with an empty array
+  dataSource = new MatTableDataSource<User>(this.user);
 
   displayedColumns: string[] = [
     'position',
@@ -41,6 +42,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+  }
+  addUser(user: User) {
+    if (user) {
+      this.user.push(user);
+      this.dataSource = new MatTableDataSource<User>(this.user);
+      this.dataSource.paginator = this.paginator;
+    }
   }
 
   getUser() {
@@ -80,6 +88,23 @@ export class HomeComponent implements OnInit {
       this.dataSource.data = this.user.filter(
         (user) => user.role.toLowerCase() === this.permission
       );
+    }
+  }
+  filterDate(date: string) {
+    console.log(date);
+    this.date = date;
+    this.filterViaDate();
+  }
+  private filterViaDate() {
+    if (this.date === 'anytime') {
+      this.dataSource.data = this.user;
+    } else {
+      const selectedDate = new Date(this.date);
+
+      this.dataSource.data = this.user.filter((user) => {
+        const userCreatedAt = new Date(user.createdAt);
+        return userCreatedAt.toDateString() === selectedDate.toDateString();
+      });
     }
   }
   deleteUser(id: string) {

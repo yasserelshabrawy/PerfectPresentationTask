@@ -29,16 +29,19 @@ export class NewUserDialogComponent {
     private toaster: ToastrService,
     private translate: TranslateService,
     public dialogRef: MatDialogRef<NewUserDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any
-    ) {}
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
   dataSource = new MatTableDataSource<User>(this.user);
-
 
   close() {
     this.dialogRef.close();
   }
+  onNoClick(user: any): void {
+    this.dialogRef.close(user);
+  }
   roles: any = [
-    { name: this.translate.instant('option.all')  },
+    { name: this.translate.instant('option.all') },
+    { name: this.translate.instant('option.admin') },
     { name: this.translate.instant('option.viewer') },
     { name: this.translate.instant('option.contributer') },
   ];
@@ -49,8 +52,6 @@ export class NewUserDialogComponent {
       this.city = res.city;
     });
     console.log(this.data?.role);
-
-
   }
   updateSelectedRole() {
     this.selectedRole = this.userList.get('role')?.value;
@@ -70,8 +71,6 @@ export class NewUserDialogComponent {
         [Validators.required],
       ],
     });
-
-
   }
 
   userform() {
@@ -86,15 +85,12 @@ export class NewUserDialogComponent {
       next: (res: any) => {
         console.log(res);
         this.user = res;
-        this.toaster.success(this.translate.instant('toaster.newUser'))
-        // this.dataSource = new MatTableDataSource<User>(this.user);
-        // console.log(this.dataSource);
-
-        this.close();
+        this.toaster.success(this.translate.instant('toaster.newUser'));
+        this.onNoClick(res)
       },
     });
   }
-  update(){
+  update() {
     const model = {
       username: this.userList.value.username,
       email: this.userList.value.email,
@@ -102,10 +98,10 @@ export class NewUserDialogComponent {
       createdAt: moment(this.userList.value['joined']).format('MMM DD, YYYY'),
       location: `${this.country} , ${this.city}`,
     };
-    this.service.updateUser(model , this.data?.id).subscribe({
-      next:(res:any)=>{
-        this.close()
-      }
-    })
+    this.service.updateUser(model, this.data?.id).subscribe({
+      next: (res: any) => {
+        this.onNoClick(res)
+      },
+    });
   }
 }

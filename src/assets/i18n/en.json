@@ -30,6 +30,7 @@
   },
   "option": {
     "all": "All",
+    "anytime": " anytime",
     "admin": "Admin",
     "viewer": "Viewer",
     "contributer": "Contributer",
