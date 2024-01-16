@@ -22,6 +22,8 @@ export class AppComponent {
       translate.use(translate.defaultLang);
     }
   }
+
+  
   ngOnInit(): void {
     this.getUserData();
   }

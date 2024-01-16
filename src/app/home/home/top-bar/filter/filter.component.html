@@ -10,7 +10,7 @@
       <option value="all">{{ "option.all" | translate }}</option>
       <option value="admin">{{ "option.admin" | translate }}</option>
       <option value="viewer">{{ "option.viewer" | translate }}</option>
-      <option value="contributor">
+      <option value="contributer">
         {{ "option.contributer" | translate }}
       </option>
     </select>
@@ -18,11 +18,16 @@
 
   <div class="permission">
     <label for="permission">{{ "table.joined" | translate }}</label>
-    <select class="search" title="permission" [(ngModel)]="selectedOption"  >
-      <option selected value="anytime">{{ "option.anytime" | translate }} </option>
-      <option value="date">{{ "option.date" | translate }}
-
+    <select
+      class="search"
+      title="permission"
+      [(ngModel)]="selectedOption"
+      (change)="onFilterOptionChange()"
+    >
+      <option selected value="anytime">
+        {{ "option.anytime" | translate }}
       </option>
+      <option value="date">{{ "option.date" | translate }}</option>
     </select>
     <input
       matInput

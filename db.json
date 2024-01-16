@@ -9,30 +9,6 @@
   ],
   "user": [
     {
-      "username": "uewfwef",
-      "email": "u@ewdghiwe",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 15
-    },
-    {
-      "username": "hateshta3'al",
-      "email": "isa@y",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 16
-    },
-    {
-      "username": "jefhfg",
-      "email": "wegfiu@rgbo",
-      "role": "Admin",
-      "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
-      "id": 17
-    },
-    {
       "username": "tttttttt",
       "email": "tttttttttttt@ttttttt",
       "role": "Admin",
@@ -43,17 +19,17 @@
     {
       "username": "new user",
       "email": "user@user",
-      "role": "Admin",
+      "role": "Contributer",
       "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
+      "location": "Egypt , Damietta",
       "id": 19
     },
     {
       "username": "ggggg",
       "email": "gg@edf",
-      "role": "Viewer",
+      "role": "Contributer",
       "createdAt": "Jan 13, 2024",
-      "location": "Egypt , Cairo",
+      "location": "Egypt , Damietta",
       "id": 20
     },
     {
@@ -287,6 +263,38 @@
       "createdAt": "Jan 16, 2024",
       "location": "Egypt , Damietta",
       "id": 60
+    },
+    {
+      "username": "yasser",
+      "email": "ah@jj",
+      "role": "3",
+      "createdAt": "Jan 27, 2024",
+      "location": " , ",
+      "id": 61
+    },
+    {
+      "username": "yasora",
+      "email": "yaso@gmail.com",
+      "role": "Viewer",
+      "createdAt": "Jan 20, 2024",
+      "location": " , ",
+      "id": 62
+    },
+    {
+      "username": "akl",
+      "email": "akl@com",
+      "role": "Admin",
+      "createdAt": "Jan 20, 2024",
+      "location": "Egypt , Damietta",
+      "id": 63
+    },
+    {
+      "username": "yasooo",
+      "email": "yaso@gmail.com",
+      "role": "",
+      "createdAt": "Jan 22, 2024",
+      "location": "Egypt , Damietta",
+      "id": 64
     }
   ],
   "login": [

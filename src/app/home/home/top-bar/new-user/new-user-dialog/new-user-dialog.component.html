@@ -1,4 +1,4 @@
-<div class="p-4 z-1 ">
+<div class="p-4 z-1">
   <header class="d-flex justify-content-between align-items-center">
     <h1 class="m-0">{{ "table.newUser" | translate }}</h1>
     <button mat-flat-button class="text-danger" (click)="close()">
@@ -50,8 +50,6 @@
           <mat-select
             class="form-control"
             formControlName="role"
-            [(ngModel)]="selectedRole"
-            (change)="updateSelectedRole()"
             [placeholder]="'table.permissions' | translate"
           >
             <mat-option *ngFor="let role of roles" [value]="role?.name">
@@ -67,7 +65,7 @@
           *ngIf="!data"
           [disabled]="userList.invalid"
         >
-          {{'table.newUser'|translate}}
+          {{ "table.newUser" | translate }}
         </button>
         <button
           class="btn btn-primary"
@@ -75,7 +73,7 @@
           (click)="update()"
           [disabled]="userList.invalid"
         >
-          {{'table.update'|translate}}
+          {{ "table.update" | translate }}
         </button>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Login } from '../models/login';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -29,6 +28,8 @@ export class NavbarComponent {
       }
     });
   }
+
+
   changeLang() {
     if (this.lang == 'en') {
       localStorage.setItem('language', 'ar');
@@ -37,6 +38,8 @@ export class NavbarComponent {
     }
     window.location.reload();
   }
+
+  
   logOut() {
     this.router.navigate(['login'])
     this.toaster.success(this.translate.instant('toaster.logout'))

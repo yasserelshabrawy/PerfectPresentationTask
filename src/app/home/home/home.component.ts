@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   OnInit,
@@ -13,6 +12,7 @@ import { NewUserDialogComponent } from './top-bar/new-user/new-user-dialog/new-u
 import { MatDialog } from '@angular/material/dialog';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +24,12 @@ export class HomeComponent implements OnInit {
   date: string = 'all';
   user: User[] = [];
   searchText: string = '';
-  constructor(private service: UserService, public dialog: MatDialog) {}
+  selectedOption: string = 'anytime';
+  constructor(
+    private service: UserService,
+    public dialog: MatDialog,
+    private toaster: ToastrService
+  ) {}
   dataSource = new MatTableDataSource<User>(this.user);
 
   displayedColumns: string[] = [
@@ -43,13 +48,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getUser();
   }
-  addUser(user: User) {
-    if (user) {
-      this.user.push(user);
-      this.dataSource = new MatTableDataSource<User>(this.user);
-      this.dataSource.paginator = this.paginator;
-    }
-  }
 
   getUser() {
     this.service.getUserList().subscribe((res: any) => {
@@ -59,11 +57,21 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  addUser(user: User) {
+    if (user) {
+      this.user.push(user);
+      this.dataSource = new MatTableDataSource<User>(this.user);
+      this.dataSource.paginator = this.paginator;
+    }
+  }
+
+
+
+
   search(search: string) {
     this.searchText = search;
     this.filterUsers();
   }
-
   private filterUsers() {
     const searchTerm = this.searchText.toLowerCase();
 
@@ -76,11 +84,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+
   filterViaPermission(permission: string) {
     this.permission = permission;
     this.filterPermission();
   }
-
   private filterPermission() {
     if (this.permission === 'all') {
       this.dataSource.data = this.user;
@@ -88,6 +96,13 @@ export class HomeComponent implements OnInit {
       this.dataSource.data = this.user.filter(
         (user) => user.role.toLowerCase() === this.permission
       );
+    }
+  }
+
+
+  onFilterOptionChange(selectedOption: string) {
+    if (this.selectedOption === selectedOption) {
+      this.filterDate('anytime');
     }
   }
   filterDate(date: string) {
@@ -107,14 +122,21 @@ export class HomeComponent implements OnInit {
       });
     }
   }
+
+
+
   deleteUser(id: string) {
     this.service.deleteUser(id).subscribe({
       next: (res) => {
+        this.toaster.success('Delete Successfully');
         console.log(res);
         this.getUser();
       },
     });
   }
+
+
+
   update(element: any): void {
     const dialogRef = this.dialog.open(NewUserDialogComponent, {
       width: '650px',
@@ -124,6 +146,8 @@ export class HomeComponent implements OnInit {
       this.getUser();
     });
   }
+
+
 
   public openPDF(): void {
     let DATA: any = document.getElementById('content');

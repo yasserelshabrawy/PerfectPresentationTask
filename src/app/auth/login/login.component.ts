@@ -18,21 +18,14 @@ export class LoginComponent implements OnInit {
     private service: AuthService,
     private toaster: ToastrService,
     private router: Router,
-    private translate:TranslateService
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.createForm();
     this.getUsers();
   }
-  getUsers() {
-    this.service.getUsers().subscribe({
-      next: (res: any) => {
-        this.users = res;
-        console.log(res);
-      },
-    });
-  }
+
   createForm() {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -43,6 +36,14 @@ export class LoginComponent implements OnInit {
           Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z 0-9])(?=.{4,})/),
         ],
       ],
+    });
+  }
+
+  getUsers() {
+    this.service.getUsers().subscribe({
+      next: (res: any) => {
+        this.users = res;
+      },
     });
   }
 
@@ -58,14 +59,14 @@ export class LoginComponent implements OnInit {
       const model = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password,
-        username:'Admin',
+        username: 'Admin',
       };
       this.service.login(model).subscribe({
         next: (res: any) => {
           this.service.user.next(res);
           this.toaster.success(this.translate.instant('toaster.login'));
           this.router.navigate(['']);
-          localStorage.setItem('token', res?.username)
+          localStorage.setItem('token', res?.username);
         },
       });
     }

@@ -1,10 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
@@ -25,7 +23,6 @@ export class NewUserDialogComponent {
   constructor(
     private fb: FormBuilder,
     private service: UserService,
-    private router: Router,
     private toaster: ToastrService,
     private translate: TranslateService,
     public dialogRef: MatDialogRef<NewUserDialogComponent>,
@@ -33,29 +30,21 @@ export class NewUserDialogComponent {
   ) {}
   dataSource = new MatTableDataSource<User>(this.user);
 
-  close() {
-    this.dialogRef.close();
-  }
-  onNoClick(user: any): void {
-    this.dialogRef.close(user);
-  }
   roles: any = [
-    { name: this.translate.instant('option.all') },
-    { name: this.translate.instant('option.admin') },
-    { name: this.translate.instant('option.viewer') },
-    { name: this.translate.instant('option.contributer') },
+    { name: this.translate.instant('option.all'), id: '1' },
+    { name: this.translate.instant('option.admin'), id: '2' },
+    { name: this.translate.instant('option.viewer'), id: '3' },
+    { name: this.translate.instant('option.contributer'), id: '4' },
   ];
   ngOnInit(): void {
     this.createForm();
+
     this.service.getLocation().subscribe((res: any) => {
       this.country = res.country_name;
       this.city = res.city;
     });
-    console.log(this.data?.role);
   }
-  updateSelectedRole() {
-    this.selectedRole = this.userList.get('role')?.value;
-  }
+
   createForm() {
     this.userList = this.fb.group({
       username: [
@@ -77,7 +66,7 @@ export class NewUserDialogComponent {
     const model = {
       username: this.userList.value.username,
       email: this.userList.value.email,
-      role: this.selectedRole,
+      role: this.userList.value.role,
       createdAt: moment(this.userList.value['joined']).format('MMM DD, YYYY'),
       location: `${this.country} , ${this.city}`,
     };
@@ -86,21 +75,30 @@ export class NewUserDialogComponent {
         console.log(res);
         this.user = res;
         this.toaster.success(this.translate.instant('toaster.newUser'));
-        this.onNoClick(res)
+        this.onNoClick(res);
       },
     });
   }
+
+  close() {
+    this.dialogRef.close();
+  }
+  onNoClick(user: any): void {
+    this.dialogRef.close(user);
+  }
+
   update() {
     const model = {
       username: this.userList.value.username,
       email: this.userList.value.email,
-      role: this.selectedRole,
+      role: this.userList.value.role,
       createdAt: moment(this.userList.value['joined']).format('MMM DD, YYYY'),
       location: `${this.country} , ${this.city}`,
     };
     this.service.updateUser(model, this.data?.id).subscribe({
       next: (res: any) => {
-        this.onNoClick(res)
+        this.toaster.success('Update Successfully');
+        this.onNoClick(res);
       },
     });
   }

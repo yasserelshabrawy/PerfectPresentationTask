@@ -16,6 +16,7 @@ export class NewUserComponent {
   addUser(user: User) {
     this.userEventEmitter.emit(user);
   }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(NewUserDialogComponent, {
       width: '650px',
