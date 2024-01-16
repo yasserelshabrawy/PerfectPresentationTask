@@ -39,6 +39,6 @@ json-server --watch db.json
 ng-serve
 
 
-Contact
+## Contact
 For support or feedback, contact me at yasser.elshabrawy98@gmail.com.
 
