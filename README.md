@@ -1,27 +1,37 @@
 # PerfectPresentationTask
+ User Managment 
+ A web-based application for managing users with search, date filtering, edit, delete, and add functionalities. 
+ and use Angular Material
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+ Features
+User Search: Easily find users by searching for their names or specific criteria.
 
-## Development server
+Date Filtering: Filter users based on registration or modification dates, making it convenient to find recently added or updated users.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+User Editing: Edit user information such as name, email, or other details to keep the records up to date.
 
-## Code scaffolding
+User Deletion: Remove users from the system when necessary. Include a confirmation step to prevent accidental deletions.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+User Addition: Add new users to the system, providing necessary information and attributes.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Installation 
+1-Clone the repository to your local machine.
+git clone https://github.com/your-username/user-management.git
 
-## Running unit tests
+2-Navigate to the project directory.
+cd PerfectPresentationTask
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3-Install dependencies.
+npm install
 
-## Running end-to-end tests
+4-In a separate terminal, start JSON Server with the provided db.json file.
+json-server --watch db.json
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5-Start the Angular development server
+ng-serve
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Contact
+For support or feedback, contact us at yasser.elshabrawy98@gmail.com.
+
