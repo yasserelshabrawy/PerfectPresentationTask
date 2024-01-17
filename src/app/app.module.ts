@@ -12,13 +12,16 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
+import { NotFoundComponent } from './notFound/not-found/not-found.component';
+import { NotFoundModule } from './notFound/not-found/not-found.module';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    NotFoundModule,
     BrowserAnimationsModule,
     MaterialModule,
     NgxSpinnerModule,

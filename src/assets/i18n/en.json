@@ -1,4 +1,6 @@
 {
+  "dir": "ltr" ,
+
   "login": {
     "login": "Login ",
     "email": "Email",

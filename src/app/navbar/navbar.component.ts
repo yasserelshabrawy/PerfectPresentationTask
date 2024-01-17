@@ -39,7 +39,7 @@ export class NavbarComponent {
     window.location.reload();
   }
 
-  
+
   logOut() {
     this.router.navigate(['login'])
     this.toaster.success(this.translate.instant('toaster.logout'))
