@@ -106,7 +106,6 @@ export class HomeComponent implements OnInit {
     }
   }
   filterDate(date: string) {
-    console.log(date);
     this.date = date;
     this.filterViaDate();
   }
