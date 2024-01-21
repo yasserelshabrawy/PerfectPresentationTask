@@ -1,5 +1,5 @@
 {
-  "dir": "ltr" ,
+  "dir": "ltr",
 
   "login": {
     "login": "Login ",
@@ -23,6 +23,7 @@
     "edit": "Edit",
     "update": "Update",
     "delete": "Delete",
+    "deleteAll": "Delete All",
     "search": "Search by name",
     "export": "Export",
     "newUser": " New User"
@@ -45,10 +46,18 @@
     "emailPassword": "Email or Password is incorrect",
     "login": "logged in successfully",
     "logout": "You have successfully logged out",
-    "newUser":"add user successfully"
+    "newUser": "add user successfully"
   },
   "title": {
     "login": "Login ",
     "home": "home "
+  },
+  "page": {
+    "itemPerPage": "items per page :",
+    "nextPageLabel": "next page label",
+    "lastPageLabel": " last page label",
+    "previousPageLabel": "pervious page label",
+    "firstPageLabel": "first page label",
+    "of": " of "
   }
 }

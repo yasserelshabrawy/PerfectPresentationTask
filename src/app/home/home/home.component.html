@@ -1,71 +1,75 @@
-<div class="home p-4 min-vh-100" [dir]="'dir'|translate">
+<div class="home p-4 min-vh-100" [dir]="'dir' | translate">
   <div class="container">
     <div class="title">
       <h3>{{ "user.managment" | translate }}</h3>
     </div>
     <div class="row align-items-center gap-3 column-gap-0">
+      <app-search
+        class="col-md-2 d-flex col-sm-12"
+        (searchEventEmitter)="search($event)"
+      ></app-search>
 
-        <app-search class="col-md-2 d-flex col-sm-12" (searchEventEmitter)="search($event)"></app-search>
-
-        <div class="col-md-5 d-flex ">
+      <div class="col-md-5 d-flex">
         <app-filter
           (permissionSelected)="filterViaPermission($event)"
           (dateSelecter)="filterDate($event)"
           (dateChange)="onFilterOptionChange($event)"
         ></app-filter>
 
-      <div class="my-auto px-2 d-none d-sm-block">
-        <div class="svg ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="45"
-            height="45"
-            viewBox="0 0 47 46"
-            fill="none"
-            class=""
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M15.7897 1.28627H19.0563C20.4079 1.28627 21.5042 2.39216 21.5042 3.75645V7.05037C21.5042 8.41362 20.4079 9.52055 19.0563 9.52055H15.7897C14.4372 9.52055 13.3408 8.41362 13.3408 7.05037V3.75645C13.3408 2.39216 14.4372 1.28627 15.7897 1.28627Z"
-              stroke="#F5F5F5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.95307 1.28627H7.21864C8.57118 1.28627 9.66756 2.39216 9.66756 3.75645V7.05037C9.66756 8.41362 8.57118 9.52055 7.21864 9.52055H3.95307C2.60053 9.52055 1.50415 8.41362 1.50415 7.05037V3.75645C1.50415 2.39216 2.60053 1.28627 3.95307 1.28627Z"
-              stroke="#F5F5F5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.95307 13.052H7.21864C8.57118 13.052 9.66756 14.1579 9.66756 15.5232V18.8161C9.66756 20.1804 8.57118 21.2863 7.21864 21.2863H3.95307C2.60053 21.2863 1.50415 20.1804 1.50415 18.8161V15.5232C1.50415 14.1579 2.60053 13.052 3.95307 13.052Z"
-              stroke="#F5F5F5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M15.7897 13.052H19.0563C20.4079 13.052 21.5042 14.1579 21.5042 15.5232V18.8161C21.5042 20.1804 20.4079 21.2863 19.0563 21.2863H15.7897C14.4372 21.2863 13.3408 20.1804 13.3408 18.8161V15.5232C13.3408 14.1579 14.4372 13.052 15.7897 13.052Z"
-              stroke="#F5F5F5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+        <div class="my-auto px-2 d-none d-sm-block">
+          <div class="svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              viewBox="0 0 47 46"
+              fill="none"
+              class=""
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15.7897 1.28627H19.0563C20.4079 1.28627 21.5042 2.39216 21.5042 3.75645V7.05037C21.5042 8.41362 20.4079 9.52055 19.0563 9.52055H15.7897C14.4372 9.52055 13.3408 8.41362 13.3408 7.05037V3.75645C13.3408 2.39216 14.4372 1.28627 15.7897 1.28627Z"
+                stroke="#F5F5F5"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3.95307 1.28627H7.21864C8.57118 1.28627 9.66756 2.39216 9.66756 3.75645V7.05037C9.66756 8.41362 8.57118 9.52055 7.21864 9.52055H3.95307C2.60053 9.52055 1.50415 8.41362 1.50415 7.05037V3.75645C1.50415 2.39216 2.60053 1.28627 3.95307 1.28627Z"
+                stroke="#F5F5F5"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3.95307 13.052H7.21864C8.57118 13.052 9.66756 14.1579 9.66756 15.5232V18.8161C9.66756 20.1804 8.57118 21.2863 7.21864 21.2863H3.95307C2.60053 21.2863 1.50415 20.1804 1.50415 18.8161V15.5232C1.50415 14.1579 2.60053 13.052 3.95307 13.052Z"
+                stroke="#F5F5F5"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15.7897 13.052H19.0563C20.4079 13.052 21.5042 14.1579 21.5042 15.5232V18.8161C21.5042 20.1804 20.4079 21.2863 19.0563 21.2863H15.7897C14.4372 21.2863 13.3408 20.1804 13.3408 18.8161V15.5232C13.3408 14.1579 14.4372 13.052 15.7897 13.052Z"
+                stroke="#F5F5F5"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-      </div>
 
-      <div class="ms-auto d-flex justify-content-lg-end gap-2 col-md-4 align-items-center ">
+      <div
+        class="ms-auto d-flex justify-content-lg-end gap-2 col-md-4 align-items-center"
+      >
         <div class="list">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
@@ -84,10 +88,20 @@
         <!-- Position Column -->
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef>
-            <div class="no"></div>
+            <mat-checkbox
+              color="primary"
+              class="example-margin"
+              [(ngModel)]="selectAll"
+              (change)="toggleSelectAll()"
+            ></mat-checkbox>
           </th>
           <td mat-cell *matCellDef="let user; let i = index">
-            <div class="no"></div>
+            <mat-checkbox
+              color="primary"
+              class="example-margin"
+              [checked]="selectAll"
+              (change)="checkBox(user)"
+            ></mat-checkbox>
           </td>
         </ng-container>
 
@@ -146,6 +160,11 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
+      <div class="d-flex justify-content-end ">
+        <button class="btn btn-danger mx-4 my-2" (click)="deleteSelectedUsers()">
+          {{ "table.deleteAll" | translate }}
+        </button>
+      </div>
       <div class="">
         <mat-paginator
           [pageSizeOptions]="[5, 10, 20]"

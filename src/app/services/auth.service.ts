@@ -13,7 +13,7 @@ export class AuthService {
   user = new Subject();
 
   login(model: Login) {
-    return this.http.put(`${environment.baseApi}/login/1`, model);
+    return this.http.post(`${environment.baseApi}/login`, model);
   }
   getUsers() {
     return this.http.get(`${environment.baseApi}/register`);

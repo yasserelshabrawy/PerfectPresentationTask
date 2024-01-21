@@ -23,6 +23,7 @@
     "edit":"التعديل",
     "update":"تحديث",
     "delete":"حذف",
+    "deleteAll":" حذف الجميع",
     "search":"بحث بالاسم",
     "export":"تصدير",
     "newUser":"إضافة مستخدم"
@@ -50,7 +51,17 @@
   "title":{
     "login":"تسجيل الدخول",
     "home":"الصفحة الرئيسية"
+  },
+
+  "page":{
+    "itemPerPage": "عدد عناصر الصفحة",
+    "firstPageLabel":"الصفحة الاولى",
+    "lastPageLabel": "الصفحة الاخيرة",
+    "nextPageLabel": "الصفحة التالية",
+    "previousPageLabel": "الصفحة السابقة",
+    "of":" من "
   }
+
 
 
 }

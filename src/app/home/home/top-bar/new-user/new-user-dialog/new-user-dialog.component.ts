@@ -31,10 +31,9 @@ export class NewUserDialogComponent {
   dataSource = new MatTableDataSource<User>(this.user);
 
   roles: any = [
-    { name: this.translate.instant('option.all'), id: '1' },
-    { name: this.translate.instant('option.admin'), id: '2' },
-    { name: this.translate.instant('option.viewer'), id: '3' },
-    { name: this.translate.instant('option.contributer'), id: '4' },
+    { name: this.translate.instant('option.admin'), id: '1' },
+    { name: this.translate.instant('option.viewer'), id: '2' },
+    { name: this.translate.instant('option.contributer'), id: '3' },
   ];
   ngOnInit(): void {
     this.createForm();

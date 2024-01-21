@@ -72,17 +72,9 @@ svg {
   left: 7px;
 }
 
-.no {
-  border-radius: 7px;
-  width: 30.292px;
-  height: 29px;
-  flex-shrink: 0;
-  border: 2px solid #7d7d7d;
-  background: $main-color;
-  display: flex;
-}
 ::ng-deep .mat-mdc-paginator-container {
   background-color: $main-color;
   justify-content: flex-start !important;
   color: white !important;
 }
+
